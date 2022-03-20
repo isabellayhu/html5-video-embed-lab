@@ -90,7 +90,8 @@ def html_file_contents
 end
 
 def parsed_html
-  Nokogiri::HTML(html_file_contents) do |config|
-    config.strict.dtdload.dtdvalid.noblanks
+  Nokogiri::HTML.parse(html_file_contents) do |config|
+    # config.strict.dtdload.dtdvalid.noblanks
+    config.dtdload.dtdvalid.noblanks
   end
 end
